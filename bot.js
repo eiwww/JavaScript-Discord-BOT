@@ -54,7 +54,7 @@ client.on('messageCreate', async (message) => {
       if(message.author.bot) return
 
       await message.channel.send(`Let me think, I will answer you soon!`).then(sentMessage => {
-        sentMessage.delete({timeout:"100000"})
+        sentMessage.delete({timeout:"10000"})
       })
 
       //set user ID that send msg
