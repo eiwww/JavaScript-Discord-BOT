@@ -96,8 +96,13 @@ client.on('interactionCreate', async (interaction) => {
       //using chat gpt and send answer
       const answer = await ask(context[0])
       let answerObj = JSON.parse(JSON.stringify(answer))
-      await interaction.channel.send(`\n-------<@${userId}> Question-------\n`+ prompt +`\n-------Answer-------\n` + answerObj.content)
+      await interaction.channel.send(`<@${userId}>\nQuestion:\n> ${prompt}\nAnswer:\n> ${answerObj.content}`)
       await interaction.deleteReply()
+      // const embed = new EmbedBuilder()
+      //   .setColor(0xFF0099)
+      //   .setTitle(prompt)
+      //   .setDescription(answerObj.content)
+      // interaction.reply({ embeds: [embed] });
 
       //push answer to previous talking to continue talk
       if(checkUser){
@@ -109,7 +114,8 @@ client.on('interactionCreate', async (interaction) => {
       console.log('Answer: '+ answerObj.content)
     } catch (error) {
       console.log(error)
-      await interaction.channel.send(`\n-------<@${userId}> Question-------\n`+ prompt +`\n-------Answer-------\nSorry I got error can't answer that`)
+      await interaction.channel.send(`<@${userId}>\nQuestion:\n> ${prompt}\nAnswer:\n> Sorry I got error can't answer that`)
+      // await interaction.channel.send(`\n-------<@${userId}> Question-------\n`+ prompt +`\n-------Answer-------\nSorry I got error can't answer that`)
       await interaction.deleteReply()
     }
   }
