@@ -10,18 +10,18 @@ const commands = [
     name: "eiwww",
     description: "Just say Fak U",
   },
-  {
-    name: "ojou",
-    description: "Ask Ojou What you want",
-    options:[
-        {
-            name: 'question',
-            description: 'question to ask ojou',
-            type: ApplicationCommandOptionType.String,
-            required: true,
-          },
-    ]
-  },
+  // {
+  //   name: "ojou",
+  //   description: "Ask Ojou What you want",
+  //   options:[
+  //       {
+  //           name: 'question',
+  //           description: 'question to ask ojou',
+  //           type: ApplicationCommandOptionType.String,
+  //           required: true,
+  //         },
+  //   ]
+  // },
   {
     name: "thx",
     description: "Clear cache for your session from using Ojou",
