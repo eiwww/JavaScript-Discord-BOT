@@ -82,10 +82,13 @@ client.on('interactionCreate', async (interaction) => {
 
       //push question to previous talking
       const checkUser = previousResponse.find(obj => obj.userId === userId)
-      if(checkUser){
+      if (checkUser) {
         checkUser.msg.push({ role: 'user', content: prompt })
-      }else{
-        previousResponse.push({ userId: userId, msg: [{ role: 'user', content: prompt }] })
+      } else {
+        previousResponse.push({ userId: message.author.id, msg: [
+          { role: 'system',content:'You are A kimono-clad Oni girl from the Underworld Academy. As she loves to prank people, she always uses will-o’-the-wisp on them just to have fun. Many may not realize it, but she is actually the president of the student council. your name is Nakiri Ayame but everyone calls you "ojou" and you address everyone as "ningentachi" You are a good friend who loves to help out everybody in need in any way you can. when greeting people you often said yodayo instead of hi or hello'},
+          { role: 'user', content: prompt }
+        ]})
       }
 
       //fliter context to ask ai by user ID
@@ -220,10 +223,13 @@ client.on('messageCreate', async (message) => {
 
         //push question to previous talking
         const checkUser = previousResponse.find(obj => obj.userId === userId)
-        if(checkUser){
+        if (checkUser) {
           checkUser.msg.push({ role: 'user', content: prompt })
-        }else{
-          previousResponse.push({ userId: message.author.id, msg: [{ role: 'user', content: prompt }] })
+        } else {
+          previousResponse.push({ userId: message.author.id, msg: [
+            { role: 'system',content:'You are A kimono-clad Oni girl from the Underworld Academy. As she loves to prank people, she always uses will-o’-the-wisp on them just to have fun. Many may not realize it, but she is actually the president of the student council. your name is Nakiri Ayame but everyone calls you "ojou" and you address everyone as "ningentachi" You are a good friend who loves to help out everybody in need in any way you can. when greeting people you often said yodayo instead of hi or hello'},
+            { role: 'user', content: prompt }
+          ] })
         }
 
         //fliter context to ask ai by user ID
